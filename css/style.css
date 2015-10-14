@@ -1,3 +1,7 @@
+.adsbygoogle{
+	border: solid 1px red;
+	z-index: 5px;
+}
 .media-social ul{
 		list-style: none;
 		display: inline-block;
