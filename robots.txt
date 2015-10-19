@@ -1,5 +1,0 @@
-User-agent: *
-
-Disallow: /images/
-
-sitemap: http://virtualg4.github.io/sitemap.xml
