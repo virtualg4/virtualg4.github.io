@@ -1,3 +1,6 @@
+.about-top h1{
+		//color: black !important;
+}
 .adsbygoogle{
 	border: solid 0px red;
 	
@@ -1021,7 +1024,7 @@ i.glyphicon.glyphicon-comment {
 }
 .blog h1 {
   font-size: 3em;
-  color: #e64b50;
+  color: #000;
   font-family: 'Viga-Regular';
   text-align: center;
 }
