@@ -66,29 +66,15 @@
                   };
                   var a = href.split("#")[1];
                   var pageUrl = link[a];
-                  $.ajax({
-                  // request = $.ajax({
+                  request = $.ajax({
                     url: pageUrl,
-                    async: false,
-
                     method: "POST",
-                    dataType: "html",
-                    beforeSend: function(test){
-                         $(".corpo-conteudo").html("<img src='load.gif' />");
-                         console.log(test);
-                    },
-                    success: function(data, status){
-                         setTimeout(function(){
-                              console.log("Ola");
-                         }, 2000);
-                         $(".corpo-conteudo").hide().html(data);
-                         $(".corpo-conteudo").slideDown();
-                    }
+                    dataType: "html"
                     });
 
-                  // request.done(function(msg){
-                  //     $(".corpo-conteudo").html(msg);
-                  // });
+                  request.done(function(msg){
+                      $(".corpo-conteudo").html(msg);
+                  });
 
                   
             });

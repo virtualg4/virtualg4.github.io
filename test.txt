@@ -60,37 +60,14 @@
       $(document).ready(function(){
             $(".topo-menu a").click(function(){
                   var href = $(this).attr("href");
-                  var link = {
-                        pg1_1: "test_1.html",  
-                        pg1_2: "test_2.html"  
-                  };
-                  var a = href.split("#")[1];
-                  var pageUrl = link[a];
-                  $.ajax({
-                  // request = $.ajax({
-                    url: pageUrl,
-                    async: false,
+                  request = $.ajax({
+                    url: "test.html",
+                    method: "GET"
+                  });
 
-                    method: "POST",
-                    dataType: "html",
-                    beforeSend: function(test){
-                         $(".corpo-conteudo").html("<img src='load.gif' />");
-                         console.log(test);
-                    },
-                    success: function(data, status){
-                         setTimeout(function(){
-                              console.log("Ola");
-                         }, 2000);
-                         $(".corpo-conteudo").hide().html(data);
-                         $(".corpo-conteudo").slideDown();
-                    }
-                    });
-
-                  // request.done(function(msg){
-                  //     $(".corpo-conteudo").html(msg);
-                  // });
-
-                  
+                  request.fail(function( jqXHR, textStatus ) {
+                        alert( "Request failed: " + textStatus );
+                  });
             });
       });
 </script>
