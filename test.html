@@ -9,119 +9,40 @@
 
 
 <style type="text/css">
-      body{
-            margin:  0em;
-            padding: 0.25em;
-      }
-      .container{
-            border: solid 1px black;
-            padding: 0.25em;
-            margin: 0px;
-      }
-      .topo-menu ul li{
-            display: inline-block;
-            border: solid 1px black;
-            padding: 0.5em;
-
-      }
-      
-
-      .topo-menu ul li:hover{
-            background-color: gray;
-            
-      }
-      .topo-menu ul li{
-            display: inline-block;
-            
-      }
-      .topo-menu-sub{
-            position: relative;
-      }
-      .topo-menu-sub:hover ul{
-            display:inline-block; 
-      }
-      .topo-menu-sub ul{
-            display: none;
-            padding: 0;
-            position: absolute;
-            left:0;
-            margin-top: 10px;  
-            
-      }
-      .topo-menu-sub ul li{
-          display: inline-block;
-      }
+    .container{
+        width: 800px;
+        border: 1px solid red;
+        margin-left:  auto;
+        margin-right: auto;
+    }
+    .adsbygoogle{
+        border: 1px solid red;
+    }
 </style>
 
 
 <script type="text/javascript" src="js/jquery.min.js"></script>
 <script type="text/javascript">
-      
-      $(document).ready(function(){
-            $(".topo-menu a").click(function(){
-                  var href = $(this).attr("href");
-                  var link = {
-                        pg1_1: "test_1.html",  
-                        pg1_2: "test_2.html"  
-                  };
-                  var a = href.split("#")[1];
-                  var pageUrl = link[a];
-                  $.ajax({
-                  // request = $.ajax({
-                    url: pageUrl,
-                    async: false,
-
-                    method: "POST",
-                    dataType: "html",
-                    beforeSend: function(test){
-                         $(".corpo-conteudo").html("<img src='load.gif' />");
-                         console.log(test);
-                    },
-                    success: function(data, status){
-                         setTimeout(function(){
-                              console.log("Ola");
-                         }, 2000);
-                         $(".corpo-conteudo").hide().html(data);
-                         $(".corpo-conteudo").slideDown();
-                    }
-                    });
-
-                  // request.done(function(msg){
-                  //     $(".corpo-conteudo").html(msg);
-                  // });
-
-                  
-            });
-      });
 </script>
 
 </head>
 <body>
-<div class="topo container">
-        <div class="topo-logo"></div>
-        <div class="topo-menu">
-                <ul>
-                      <li><a href="#pg1_1">Item 1.1</a></li>
-                      <li><a href="#pg1_2">Item 1.2</a></li>
-                      <li class="topo-menu-sub"><a href="#pg1_3">Item 1.3</a>
-                            <ul>
-                                <li><a href="#pg2_1">Item 2.1</a></li>
-                                <li><a href="#pg2_2">Item 2.2</a></li>
-                                
-                            </ul> 
-                      </li>
-                </ul> 
-        </div>
-</div>
-<div class="corpo container">
-      <div class="corpo-conteudo"></div>
-      <div class="corpo-conteudo-lado"></div>
-</div>
+      <div class="container">
+          <h1>Titulo</h1>
+          <p>Texto</p>
+          <!-- GOOGLE ADSENSE START -->
 
-<div class="rodape container">
-      <div class="rodape-menu"></div>
-      <div class="rodape-copyright"></div>
-</div>
-<div class="clicado"></div>  
+          <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+          <!-- G4Virtual -->
+          <ins class="adsbygoogle"
+           style="display:inline-block;width:728px;height:90px"
+           data-ad-client="ca-pub-8292462256462069"
+           data-ad-slot="8086537237"></ins>
+          <script>
+          (adsbygoogle = window.adsbygoogle || []).push({});
+          </script>
+
+          <!-- GOOGLE ADSENSE END -->
+      </div>
 </body>
 </html>
