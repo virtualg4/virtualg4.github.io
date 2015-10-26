@@ -4,7 +4,7 @@
 	<meta charset="UTF-8" />
 	<title>Lista Telefonica</title>
 
-	<link rel="stylesheet" type="text/css" href="_css/bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.css">
 
 	<style type="text/css">
 			.jumbotron{
@@ -31,22 +31,25 @@
 			}
 	</style>
 
-	<script type="text/javascript" src="_lib/angular.js"></script>
-	<script type="text/javascript" src="_lib/angular-locale_pt-br.js"></script>
+	<script type="text/javascript" src="lib/angular.js"></script>
+	<script type="text/javascript" src="lib/angular-locale_pt-br.js"></script>
 	<!-- 
-	<script type="text/javascript" src="_lib/bootstrap.js"></script>
+	<script type="text/javascript" src="lib/bootstrap.js"></script>
 	 -->
-	<script type="text/javascript" src="_lib/jquery-2.1.4.js"></script>
+	<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
 
 	<script type="text/javascript">
 			angular.module("listaTelefonica", []);
-			angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope){
+			angular.module("listaTelefonica").controller("listaTelefonicaCtrl", function($scope, $http){
 					 $scope.msg = "Lista Telefonica";
 					 $scope.contatos = [
 					 {nome: "Pedro", 	telefone: "957363353", data: new Date(), operadora: {nome: "Oi", codigo: "10"}},
 					 {nome: "Ana", 		telefone: "957363353", data: new Date(), operadora: {nome: "Vivo", codigo: "11"}},
 					 {nome: "Maria", 	telefone: "957363353", data: new Date(), operadora: {nome: "Tim", codigo: "12"}}
 					 ];
+					 // $scope.contatos = [];
+
+
 					 $scope.operadoras = [
 					 	{nome: "Oi", 	codigo: "10", categoria: "Celular",	preco: "2"},
 					 	{nome: "Vivo", 	codigo: "11", categoria: "Celular",	preco: "1"},
@@ -78,7 +81,8 @@
 		 					$scope.ordenarPorCampo = campo;
 		 					$scope.direcao = !$scope.direcao;
 		 			};
-
+		 			
+		 			
 			});
 	</script>
 </head>
@@ -105,7 +109,7 @@
 						<td>
 							<input type="checkbox" ng-model="item.selecionado"/> 
 						</td>
-						<td> {{item.nome}} </td>
+						<td> {{item.nome }} </td>
 						<td> {{item.telefone}} </td>
 						<td> {{item.operadora.nome}} </td>
 						<td> {{item.data | date:'dd/MM/yyyy hh:mm' }} </td>

@@ -9,14 +9,37 @@
   <link rel="stylesheet" href="_css/bootstrap.css">
   <script src="_lib/jquery-2.1.4.js"></script>
   <script src="_lib/bootstrap.js"></script>
+  <script type="text/javascript">
+        window.onload = function(){
+                  function get(url, method, callback){
+                    var httpRequest = new XMLHttpRequest();
+                    httpRequest.onreadystate = function(){
+                          if (httpRequest.readyState == 4) {
+                              callback(httpRequest.responseText, httpRequest.status);
+                          }
 
+                    };
+
+                    httpRequest.open(method, url);
+                    httpRequest.send(null);
+                };
+                var resp;
+
+                get("http://127.0.0.1:8080/testeAngular/back.php", "GET", function(a,b){
+
+                    resp = document.getElementById("resp");
+
+                    resp.innerHTML = a;       
+                });
+        }
+  </script>
 
   <style type="text/css">
   </style>
 </head>
 <body>
-  <div class="container">
-    Teste
+  <div id="resp" class="container">
+    
   </div>
 </body>
 </html>
