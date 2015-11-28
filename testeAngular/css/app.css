@@ -1,0 +1,22 @@
+.jumbotron{
+	width:  50%;
+	padding: 1.3em;
+	display: inline-block;
+	word-break: break-all;
+}
+.msg{
+	position: absolute;
+}
+.table{
+	//text-align: left;
+}
+form > *{
+	margin-top: 0.5em;
+}
+body{
+	
+}
+.selecionado{
+	background-color: yellow;
+	font-weight: bolder;
+}
