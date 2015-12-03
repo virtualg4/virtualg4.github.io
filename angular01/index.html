@@ -1,0 +1,92 @@
+<html ng-app="angular01">
+<head>
+	<title>Angular 01</title>
+
+	<link rel="stylesheet" type="text/css" href="lib/bootstrap-3.3.5-dist/css/bootstrap.css">
+	<style type="text/css">
+		.corpo{
+			width: 700px;
+			padding: 5px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.table{
+			margin-left: auto;
+			margin-right: auto;
+
+		}
+		.table thead{
+			font-weight: bolder;
+
+		}
+	</style>
+	<script type="text/javascript" src="lib/angular.js"></script>
+	<script type="text/javascript" src="lib/jquery-2.1.4.js"></script>
+
+
+	<script type="text/javascript">
+		angular.module("angular01", []);
+		angular.module("angular01").controller("angular01Ctrl", function($scope){
+				$scope.tit = "Angular 01";
+				$scope.contatos = [
+					{nome:"Jao",	telefone:"23032011"},
+					{nome:"Maria",	telefone:"25032012"},
+					{nome:"Carlos",	telefone:"23032013"}
+				];
+
+				$scope.addContato = function(contato){
+						//console.log(contato);
+						$scope.contatos.push(angular.copy(contato));
+						delete $scope.contato;
+						$scope.contatoForm.$setPristine();
+
+				};
+		});
+	</script>
+</head>
+
+	<body ng-controller="angular01Ctrl">
+		<div class="jumbotron corpo">
+			<h2>{{tit}}</h2>
+
+			{{busca}}
+			<input type="text" class="form-control" placeholder="Busca" ng-model="busca" />
+			<table class="table table-striped">
+				<thead>
+					<tr>
+						<td>Nome</td>
+						<td>Telefone</td>
+					</tr>
+					
+				</thead>
+				<tbody>
+					<tr ng-repeat="item in contatos | filter:{nome:busca}" >
+						<td>{{item.nome}}</td>
+						<td>{{item.telefone}}</td>
+
+					</tr>
+
+				</tbody>
+			</table>
+			{{contatoForm.$valid}}
+			<form name="contatoForm">
+				<input type="text" name="nome" ng-model="contato.nome" class="form-control" placeholder="Nome" ng-required="true" />
+				<input type="text" name="telefone" ng-model="contato.telefone" class="form-control" placeholder="Telefone" ng-required="true" ng-pattern="/^\d{4,5}-\d{4}$/"/>
+				
+				<button class="btn btn-primary btn-block" ng-click="addContato(contato)" ng-disabled="!contatoForm.$valid" >
+					Add Contato
+				</button>
+				<div class="alert alert-danger" ng-show="contatoForm.nome.$error.required && contatoForm.nome.$dirty">
+					Nome 
+				</div>
+				<div class="alert alert-danger" ng-show="contatoForm.telefone.$error.required && contatoForm.telefone.$dirty">
+					Telefone Required & Dirty 
+				</div>
+				<div class="alert alert-danger" ng-show="contatoForm.telefone.$error.pattern">
+					Telefone Pattern
+				</div>
+				{{contato}}
+			</form>
+		</div>
+	</body>
+</html>
